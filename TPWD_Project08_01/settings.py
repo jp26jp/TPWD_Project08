@@ -25,7 +25,7 @@ SECRET_KEY = 'nw(x)@=e$mocz$i$k&#29kg8n-y6ycb8(gtt9_$bk%2*2&jllk'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0,0,0,0']
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
