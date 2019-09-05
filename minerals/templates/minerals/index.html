@@ -13,3 +13,15 @@
     </ul>
 </div>
 {% endblock %}
+
+{% block script %}
+    <script>
+    let url = document.location.href
+    let urlLetters = document.querySelectorAll(".minerals__alphabet a")
+    for (let i = 0; i < urlLetters.length; i++) {
+        if (urlLetters[i].href === url) {
+            urlLetters[i].className = "active"
+        }
+    }
+    </script>
+{% endblock %}

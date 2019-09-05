@@ -16,7 +16,12 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 
-urlpatterns = [
-    path('minerals/', include('minerals.urls')),
-    path('admin/', admin.site.urls),
-]
+from TPWD_Project08_01 import settings
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+        path('minerals/', include('minerals.urls')),
+        path('admin/', admin.site.urls),
+    ]

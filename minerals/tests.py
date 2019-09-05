@@ -32,7 +32,7 @@ class MineralModelTests(TestCase):
 class MineralViewsTests(TestCase):
     def setUp(self):
         self.mineral1 = Mineral.objects.create(name="A Cool Name")
-        self.mineral2 = Mineral.objects.create(name="A Different Name")
+        self.mineral2 = Mineral.objects.create(name="Different Name", group="Random Things")
 
     def test_mineral_list_view(self):
         resp = self.client.get(reverse('minerals:list'))
@@ -44,3 +44,14 @@ class MineralViewsTests(TestCase):
         resp = self.client.get(reverse('minerals:detail', kwargs={'slug': self.mineral1.slug}))
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(self.mineral1, resp.context['mineral'])
+
+    def test_mineral_letter_view(self):
+        resp = self.client.get(reverse('minerals:letter', kwargs={'letter': "d"}))
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(self.mineral2, resp.context['minerals'][0])
+
+    def test_mineral_group_view(self):
+        resp = self.client.get(reverse('minerals:group', kwargs={'group': "random"}))
+        self.assertEqual(resp.status_code, 200)
+        self.assertEqual(self.mineral2, resp.context['minerals'][0])
+

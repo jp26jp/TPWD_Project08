@@ -9,7 +9,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href='https://fonts.googleapis.com/css?family=Work+Sans:400,500' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Cousine' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="{% static 'css/global.css' %}">
+    <link rel="stylesheet" href="{% static 'css/global.css' %}?v=2">
 </head>
 <body>
 <div class="minerals__search minerals__top">
@@ -35,12 +35,29 @@
         </a>
         <p class="logo__text text-centered">They're not rocks!</p>
     </div>
-    <div class="grid-100 mineral__container">
+    <div class="minerals__groups grid-25">
+        <a href="/minerals/group/silicates">Silicates</a>
+        <a href="/minerals/group/oxides">Oxides</a>
+        <a href="/minerals/group/sulfates">Sulfates</a>
+        <a href="/minerals/group/sulfides">Sulfides</a>
+        <a href="/minerals/group/carbonates">Carbonates</a>
+        <a href="/minerals/group/halides">Halides</a>
+        <a href="/minerals/group/sulfosalts">Sulfosalts</a>
+        <a href="/minerals/group/phosphates">Phosphates</a>
+        <a href="/minerals/group/borates">Borates</a>
+        <a href="/minerals/group/organic-minerals">Organic Minerals</a>
+        <a href="/minerals/group/arsenates">Arsenates</a>
+        <a href="/minerals/group/native-elements">Native Elements</a>
+        <a href="/minerals/group/other">Other</a>
+    </div>
+    <div class="grid-75 mineral__container">
         {% block content %}{% endblock %}
     </div>
 </div>
 <div class="minerals__random">
     <a class="minerals__anchor" href="#">Show random mineral</a>
 </div>
+
+{% block script %}{% endblock %}
 </body>
 </html>

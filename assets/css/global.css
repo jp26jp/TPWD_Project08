@@ -104,7 +104,7 @@ body {
 }
 
 .bounds {
-    max-width: 800px;
+    max-width: 1200px;
     margin: 0 auto;
     padding: 50px 0 150px;
     overflow: hidden;
@@ -966,7 +966,6 @@ table, p, ul {
 }
 
 .minerals__search {
-    border-bottom: 1px solid #eee;
     background: #384033;
     padding: 20px 0;
 }
@@ -995,7 +994,7 @@ table, p, ul {
     left: 0;
     width: 70%;
     height: 100%;
-  outline: none;
+    outline: none;
 }
 
 .minerals__search button {
@@ -1010,16 +1009,32 @@ table, p, ul {
     width: 30%;
     height: 100%;
     border-radius: 100px;
-  outline: none;
+    outline: none;
+    cursor: pointer;
 }
 
 .minerals__alphabet {
-    overflow: auto
+    overflow: auto;
+    padding: 0;
 }
 
 .minerals__alphabet a {
+    line-height: 52px;
     flex-grow: 1;
     text-align: center;
     font-size: 20px;
-    min-width: 30px
+    min-width: 30px;
+    transition: background-color 200ms ease-in-out, font-weight 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.minerals__alphabet a:hover {
+    background-color: #DCF5F2;
+}
+.minerals__alphabet a:active, .minerals__alphabet a.active {
+    background-color: #689b98;
+    color: white;
+}
+
+.minerals__groups a {
+    display: block;
 }
