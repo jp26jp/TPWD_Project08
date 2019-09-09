@@ -1,4 +1,7 @@
-from django.shortcuts import render
+import random
+
+from django.db.models import Max
+from django.shortcuts import render, redirect
 
 from minerals.models import Mineral
 
@@ -51,3 +54,12 @@ def detail(request, slug):
     """
     mineral = Mineral.objects.get(slug=slug)
     return render(request, 'minerals/detail.html', {'mineral': mineral})
+
+
+def random_mineral(request):
+    """
+    View for displaying a random mineral
+    """
+    random_id = random.randint(1, Mineral.objects.count())
+    mineral = Mineral.objects.get(pk=random_id)
+    return redirect('minerals:detail', slug=mineral.slug)

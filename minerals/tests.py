@@ -54,4 +54,3 @@ class MineralViewsTests(TestCase):
         resp = self.client.get(reverse('minerals:group', kwargs={'group': "random"}))
         self.assertEqual(resp.status_code, 200)
         self.assertEqual(self.mineral2, resp.context['minerals'][0])
-

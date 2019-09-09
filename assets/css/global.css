@@ -1037,4 +1037,19 @@ table, p, ul {
 
 .minerals__groups a {
     display: block;
+    position: relative;
+    margin-bottom: 5px;
+}
+
+.minerals__groups a.active {
+    font-weight: bold;
+}
+
+.minerals__groups a.active:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 90%;
+    height: 1px;
+    background: white;
 }

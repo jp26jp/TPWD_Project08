@@ -9,5 +9,6 @@ urlpatterns = [
     path('letter/<str:letter>/', views.letter, name='letter'),
     path('group/<str:group>/', views.group, name='group'),
     path('<slug:slug>', views.detail, name='detail'),
-    path('search/', views.search, name='search')
+    path('search/', views.search, name='search'),
+    path('random/', views.random_mineral, name='random')
 ]

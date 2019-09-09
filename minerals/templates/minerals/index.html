@@ -3,25 +3,37 @@
 {% block title %}Macky's Minerals: A magnificant catalog of minerals{% endblock %}
 
 {% block content %}
-<div class="grid-100">
-    <ul class="minerals__container">
-        {% for mineral in minerals %}
-        <li class="minerals__item">
-            <a class="minerals__anchor" href="/minerals/{{mineral.slug}}">{{mineral.name}}</a>
-        </li>
-        {% endfor %}
-    </ul>
-</div>
+    <div class="grid-100">
+        <ul class="minerals__container">
+            {% for mineral in minerals %}
+                <li class="minerals__item">
+                    <a class="minerals__anchor" href="/minerals/{{ mineral.slug }}">{{ mineral.name }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
 {% endblock %}
 
 {% block script %}
     <script>
-    let url = document.location.href
-    let urlLetters = document.querySelectorAll(".minerals__alphabet a")
-    for (let i = 0; i < urlLetters.length; i++) {
-        if (urlLetters[i].href === url) {
-            urlLetters[i].className = "active"
+        const url = document.location.href;
+
+        const addActiveClassToActiveMenu = navItemsClass => {
+            const elements = document.querySelectorAll(navItemsClass);
+            for (let i = 0; i < elements.length; i++) {
+                if (elements[i].href === url) {
+                    elements[i].className = "active"
+                }
+            }
         }
-    }
+
+        if (url.includes("letter"))
+            addActiveClassToActiveMenu(".minerals__alphabet a");
+
+        if (url.includes("group"))
+            addActiveClassToActiveMenu(".minerals__groups a");
+
+
+
     </script>
 {% endblock %}
